@@ -18,6 +18,11 @@ const divide = function(a,b){
     return a / b; 
 }
 
+const backspace = function(a){
+    const backspacedText = a.slice(0,-1);
+    return backspacedText;
+}
+
 const operate = function (operator, num1, num2){
 
     if (operator == "+"){
@@ -94,6 +99,7 @@ operandBtns.forEach((btn) => btn.addEventListener('click', (event) => {
 
 const equalsBtn = document.querySelector('#equals');
 const clearBtn = document.querySelector('#clear');
+const backspaceBtn = document.querySelector('#backspace');
 
 equalsBtn.addEventListener('click', (event)=> {
     if (operand != ''){
@@ -115,5 +121,10 @@ clearBtn.addEventListener('click', (event) => {
     firstNum = undefined;
     secondNum = undefined;
     operand = '';
+    display.innerHTML = displayText;
+});
+
+backspaceBtn.addEventListener('click', (event) => {
+    displayText = backspace(display.innerHTML);
     display.innerHTML = displayText;
 });
